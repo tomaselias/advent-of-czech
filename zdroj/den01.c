@@ -1,4 +1,4 @@
-#include "czech.h"
+#include "../knihovna/czech.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -47,9 +47,10 @@
     číslo násobek1 = spočti_násobek_dvou(účtenka, délka, suma);
     číslo násobek2 = spočti_násobek_tří(účtenka, délka, suma);
 
-    tisknif("Advent kódu 2020, den 01\n");
-    tisknif("První část: %d\n", násobek1);
-    tisknif("Druhá část: %d\n", násobek2);
+    tisknif("Advent kódu 2020, den 01%c", KŘ);
+    tisknif("První část: %d%c", násobek1, KŘ);
+    tisknif("Druhá část: %d%c", násobek2, KŘ);
+    tisknif("%c", KŘ);
 
     osvoboď(účtenka);
     vrať 0;
