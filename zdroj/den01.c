@@ -2,15 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-číslo* rozparsuj_účtenku(znak* jméno_souboru, číslo délka) {
-    SOUBOR* soubor = sotevři(jméno_souboru, ČTENÍ);
+číslo* rozparsuj_účtenku(číslo délka) {
     číslo* účtenka = ppřiděl(délka * velikost(číslo));
 
     pro(velikost_t i = 0; i < délka; ++i) {
-        sčtif(soubor, "%d", &účtenka[i]);
+        čtif("%d", &účtenka[i]);
     }
 
-    szavři(soubor);
     vrať účtenka;
 }
 
@@ -38,11 +36,11 @@
     vrať 0;
 }
 
-číslo hlavní(číslo argp, znak** argv) {
+číslo hlavní(prázdno) {
     číslo délka = 200;
     číslo suma = 2020;
 
-    číslo* účtenka = rozparsuj_účtenku(argv[1], délka);
+    číslo* účtenka = rozparsuj_účtenku(délka);
 
     číslo násobek1 = spočti_násobek_dvou(účtenka, délka, suma);
     číslo násobek2 = spočti_násobek_tří(účtenka, délka, suma);
