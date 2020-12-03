@@ -1,0 +1,66 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools"
+		]
+	},
+	"settings": {},
+	"launch": {
+		"configurations": [
+			{
+				"name": "gcc - Build and debug active file",
+				"type": "cppdbg",
+				"request": "launch",
+				"program": "${fileDirname}/${fileBasenameNoExtension}",
+				"args": [
+					"<",
+					"${fileDirname}/../vstup/${fileBasenameNoExtension}vstup.txt"
+				],
+				"stopAtEntry": false,
+				"cwd": "${workspaceFolder}",
+				"environment": [],
+				"externalConsole": false,
+				"MIMode": "gdb",
+				"setupCommands": [
+					{
+						"description": "Enable pretty-printing for gdb",
+						"text": "-enable-pretty-printing",
+						"ignoreFailures": true
+					}
+				],
+				"preLaunchTask": "C/C++: gcc build active file",
+				"miDebuggerPath": "/usr/bin/gdb"
+			}
+		],
+		"compounds": []
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"type": "cppbuild",
+				"label": "C/C++: gcc build active file",
+				"command": "/usr/bin/gcc",
+				"args": [
+					"-g",
+					"${file}",
+					"-o",
+					"${fileDirname}/${fileBasenameNoExtension}"
+				],
+				"options": {
+					"cwd": "/usr/bin"
+				},
+				"problemMatcher": [
+					"$gcc"
+				],
+				"group": "build",
+				"detail": "Generated task by Debugger"
+			}
+		]
+	}
+}
