@@ -1,6 +1,9 @@
 #include "../knihovna/czech.h"
+#include "../knihovna/helper.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+#define DEN "01"
 
 číslo* rozparsuj_účtenku(číslo délka) {
     číslo* účtenka = ppřiděl(délka * velikost(číslo));
@@ -45,10 +48,7 @@
     číslo násobek1 = spočti_násobek_dvou(účtenka, délka, suma);
     číslo násobek2 = spočti_násobek_tří(účtenka, délka, suma);
 
-    tisknif("Advent kódu 2020, den 01%c", KŘ);
-    tisknif("První část: %d%c", násobek1, KŘ);
-    tisknif("Druhá část: %d%c", násobek2, KŘ);
-    tisknif("%c", KŘ);
+    tiskni_řešení(DEN, násobek1, násobek2);
 
     osvoboď(účtenka);
     vrať 0;

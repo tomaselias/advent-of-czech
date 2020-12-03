@@ -1,7 +1,10 @@
 #include "../knihovna/czech.h"
+#include "../knihovna/helper.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define DEN "02"
 
 číslo hlavní(prázdno) {
     znak heslo[99], písmeno[1];
@@ -10,7 +13,7 @@
 
     zatímco(čtif("%d-%d %c: %s", min, max, písmeno, heslo) > 0) {
         číslo počet_výskytů = 0;
-        pro (znak* aktuální_znak = heslo; *aktuální_znak; ++aktuální_znak) {
+        pro(znak* aktuální_znak = heslo; *aktuální_znak; ++aktuální_znak) {
             počet_výskytů += *aktuální_znak == *písmeno;
         }
 
@@ -18,8 +21,6 @@
         druhá_část += (heslo[*min - 1] == *písmeno) ^ (heslo[*max - 1] == *písmeno);
     }
 
-    tisknif("Advent kódu 2020, den 02%c", KŘ);
-    tisknif("První část: %d%c", první_část, KŘ);
-    tisknif("Druhá část: %d%c", druhá_část, KŘ);
-    tisknif("%c", KŘ);
+    tiskni_řešení(DEN, první_část, druhá_část);
+    vrať 0;
 }
