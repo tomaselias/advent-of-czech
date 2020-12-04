@@ -6,7 +6,7 @@
 #define DEN "03"
 
 #define DÉLKA 323
-#define ŠÍŘKA 32
+#define ŠÍŘKA 31
 #define STROM '#'
 
 číslo64_t počet_stromů(znak les[DÉLKA][ŠÍŘKA], číslo x, číslo y) {
@@ -32,13 +32,13 @@
         čtif("%s", les[i]);
     }
 
-    číslo x[5][2] = { { 1, 1 }, { 3, 1 }, { 5, 1 }, { 7, 1 }, { 1, 2 } };
+    číslo směr[5][2] = { { 1, 1 }, { 3, 1 }, { 5, 1 }, { 7, 1 }, { 1, 2 } };
 
-    číslo64_t první_část = počet_stromů(les, x[1][0], x[1][1]);
+    číslo64_t první_část = počet_stromů(les, směr[1][0], směr[1][1]);
 
     číslo64_t druhá_část = 1;
     pro(velikost_t i = 0; i < 5; i++) {
-        druhá_část *= počet_stromů(les, x[i][0], x[i][1]);
+        druhá_část *= počet_stromů(les, směr[i][0], směr[i][1]);
     }
 
     tiskni_řešení(DEN, první_část, druhá_část);
